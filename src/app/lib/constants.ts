@@ -10,10 +10,10 @@ export const APP_CONFIG = {
 
 // Spotlight configuration
 export const SPOTLIGHT_CONFIG = {
-  size: 900,
-  blur: 60,
+  size: 1000,
+  blur: 50,
   color: 'default' as const,
-  OPACITY: 0.38,
+  OPACITY: 0.45,
   EASING: 0.22,
   EPSILON: 0.08, // snapping threshold in px
 } as const;
@@ -47,9 +47,9 @@ export const COLORS = {
 
 // Gradient stops for spotlight
 export const SPOTLIGHT_GRADIENTS = {
-  CYAN: `radial-gradient(circle, rgba(0,229,255,0.14) 0%, rgba(0,229,255,0.065) 38%, rgba(0,229,255,0.025) 62%, rgba(0,229,255,0.0) 78%)`,
-  PURPLE: `radial-gradient(circle, rgba(154,77,255,0.14) 0%, rgba(154,77,255,0.065) 38%, rgba(154,77,255,0.025) 62%, rgba(154,77,255,0.0) 78%)`,
-  DEFAULT: `radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.055) 38%, rgba(255,255,255,0.02) 62%, rgba(255,255,255,0.0) 78%)`,
+  CYAN: `radial-gradient(circle, rgba(0,229,255,0.16) 0%, rgba(0,229,255,0.08) 35%, rgba(0,229,255,0.04) 55%, rgba(0,229,255,0.016) 75%, rgba(0,229,255,0.0) 85%)`,
+  PURPLE: `radial-gradient(circle, rgba(154,77,255,0.16) 0%, rgba(154,77,255,0.08) 35%, rgba(154,77,255,0.04) 55%, rgba(154,77,255,0.016) 75%, rgba(154,77,255,0.0) 85%)`,
+  DEFAULT: `radial-gradient(circle, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.07) 35%, rgba(255,255,255,0.035) 55%, rgba(255,255,255,0.014) 75%, rgba(255,255,255,0.0) 85%)`,
 } as const;
 
 // Social links

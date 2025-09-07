@@ -207,8 +207,7 @@ body {
   pointer-events: none;
   position: fixed;
   z-index: 100;
-  will-change: transform, opacity;
-  /* Removed opacity pulsing to prevent subtle perceived drifting when still */
+  will-change: transform;
   border-radius: 50%;
   aspect-ratio: 1 / 1;
   clip-path: circle(50% at 50% 50%);
@@ -222,7 +221,9 @@ body {
   border-radius: 50%;
   background: var(--spot-gradient);
   clip-path: circle(50% at 50% 50%);
-  /* Prevent subtle scaling artifacts */
-  transform: translateZ(0);
+  /* Prevent subtle scaling artifacts and layer shifting */
+  transform: translateZ(0) translate3d(0, 0, 0);
   backface-visibility: hidden;
+  will-change: auto;
+  contain: strict;
 }
