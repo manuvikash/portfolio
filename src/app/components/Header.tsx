@@ -27,6 +27,7 @@ export default function Header() {
 
       <nav className="hidden md:flex items-center gap-4">
         <Link className="link" href="/">Home</Link>
+        <Link className="link" href="/home">Full Portfolio</Link>
         <Link className="link" href="/blog">Blog</Link>
         <a className="button-ghost" href="/resume.pdf" download>Resume</a>
         <a className="link" href="https://www.linkedin.com/manuvikash-saravanakumar-941b76162/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
@@ -50,6 +51,7 @@ export default function Header() {
         <div className="absolute left-0 right-0 top-[60px] sm:top-[68px] mx-4 sm:mx-6 md:hidden z-50">
           <div className="card menu-panel p-4 flex flex-col gap-3">
             <Link className="link" href="/" onClick={() => setOpen(false)}>Home</Link>
+            <Link className="link" href="/home" onClick={() => setOpen(false)}>Full Portfolio</Link>
             <Link className="link" href="/blog" onClick={() => setOpen(false)}>Blog</Link>
             <a className="button-ghost" href="/resume.pdf" download onClick={() => setOpen(false)}>Resume</a>
             <div className="flex items-center gap-4">

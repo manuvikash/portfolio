@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Header from "./components/Header";
 import { Geist, Geist_Mono } from "next/font/google";
+import SpotlightProvider from "./components/SpotlightProvider";
+import { APP_CONFIG } from "./lib/constants";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,20 +16,20 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Developer Portfolio — Futuristic",
-    template: "%s — Dev Portfolio",
+    default: APP_CONFIG.TITLE.DEFAULT,
+    template: APP_CONFIG.TITLE.TEMPLATE,
   },
-  description: "Minimal, futuristic developer portfolio and blog.",
-  metadataBase: new URL("https://example.com"),
+  description: APP_CONFIG.DESCRIPTION,
+  metadataBase: new URL(APP_CONFIG.URL),
   openGraph: {
-    title: "Developer Portfolio — Futuristic",
-    description: "Minimal, futuristic developer portfolio and blog.",
+    title: APP_CONFIG.TITLE.DEFAULT,
+    description: APP_CONFIG.DESCRIPTION,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Developer Portfolio — Futuristic",
-    description: "Minimal, futuristic developer portfolio and blog.",
+    title: APP_CONFIG.TITLE.DEFAULT,
+    description: APP_CONFIG.DESCRIPTION,
   },
 };
 
@@ -41,13 +41,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="page-enter page-enter-active min-h-dvh flex flex-col">
-          <Header />
-          <main className="flex-1 px-4 sm:px-6">{children}</main>
-          <footer className="px-4 sm:px-6 py-5 sm:py-6 text-xs sm:text-sm text-[color:var(--fg-dim)]">
-            © {new Date().getFullYear()} • Built with Next.js
-          </footer>
-        </div>
+        <SpotlightProvider />
+        {children}
       </body>
     </html>
   );

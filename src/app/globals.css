@@ -33,6 +33,14 @@ html, body {
   height: 100%;
 }
 
+/* Hide scrollbars (cross-browser) */
+html, body {
+  scrollbar-width: none; /* Firefox */
+  overscroll-behavior: contain;
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
+body { -ms-overflow-style: none; }
+
 body {
   background: radial-gradient(1200px 800px at 10% 10%, var(--bg-2), transparent 60%),
               radial-gradient(1000px 700px at 90% 30%, #170a2b, transparent 60%),
@@ -157,7 +165,8 @@ body {
   box-shadow: 0 8px 26px color-mix(in oklab, var(--neon-cyan) 24%, transparent);
   transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease;
 }
-.button-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px color-mix(in oklab, var(--neon-cyan) 36%, transparent); }
+/* Buttons rise on hover but no glow intensification */
+.button-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 26px color-mix(in oklab, var(--neon-cyan) 24%, transparent); }
 
 .button-ghost {
   display: inline-flex;
@@ -170,7 +179,8 @@ body {
   background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.0));
   transition: transform .25s cubic-bezier(.2,.8,.2,1), border-color .25s ease;
 }
-.button-ghost:hover { transform: translateY(-2px); border-color: color-mix(in oklab, var(--neon-cyan) 40%, transparent); }
+/* Ghost button rises but border doesn't brighten */
+.button-ghost:hover { transform: translateY(-2px); border-color: color-mix(in oklab, var(--neon-purple) 30%, transparent); }
 
 .grid-auto-fit {
   display: grid;
@@ -190,4 +200,29 @@ body {
 @keyframes bgShift {
   0% { filter: hue-rotate(0deg) saturate(1); }
   100% { filter: hue-rotate(8deg) saturate(1.15); }
+}
+
+/* Cursor spotlight styles */
+.cursor-spotlight {
+  pointer-events: none;
+  position: fixed;
+  z-index: 100;
+  will-change: transform, opacity;
+  /* Removed opacity pulsing to prevent subtle perceived drifting when still */
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  clip-path: circle(50% at 50% 50%);
+  contain: layout paint style;
+  image-rendering: optimizeQuality;
+}
+
+.cursor-spotlight-core {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--spot-gradient);
+  clip-path: circle(50% at 50% 50%);
+  /* Prevent subtle scaling artifacts */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
