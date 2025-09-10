@@ -1,11 +1,11 @@
 // Core application constants
 export const APP_CONFIG = {
   TITLE: {
-    DEFAULT: "Developer Portfolio — Futuristic",
-    TEMPLATE: "%s — Dev Portfolio",
+    DEFAULT: "Manuvikash's Portfolio",
+    TEMPLATE: "%s — Manuvikash's Portfolio",
   },
-  DESCRIPTION: "Minimal, futuristic developer portfolio and blog.",
-  URL: "https://example.com",
+  DESCRIPTION: "Manuvikash's personal portfolio showcasing projects and skills.",
+  URL: "https://manuvikash.cc",
 } as const;
 
 // Spotlight configuration
